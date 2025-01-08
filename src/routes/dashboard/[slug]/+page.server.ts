@@ -1,7 +1,6 @@
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load = async ({ params }) => {
 	// const post = await getPostFromDatabase(params.slug);
 	let post
 	if (params.slug === 'hello-world') {

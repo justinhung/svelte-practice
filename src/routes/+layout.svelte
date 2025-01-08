@@ -1,9 +1,7 @@
 <script lang="ts">
-	import type { LayoutData } from './$types';
-	import type { Snippet } from 'svelte';
 	import "../app.css";
 
-	let { data, children }: { data: LayoutData, children: Snippet } = $props();
+	let { data, children } = $props();
 </script>
 
 <div class="flex bg-indigo-300 p-4 justify-between items-center">
@@ -16,14 +14,15 @@
 		</div>
   </div>
   <div class="flex-initial">
+
     <button class="rounded bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4">Login</button>
   </div>
 </div>
 
-<!-- <div class="submenu">
+<div class="submenu">
 	{#each data.sections as section}
 		<a href="/settings/{section.slug}">{section.title}</a>
 	{/each}
-</div> -->
+</div>
 
 {@render children()}
