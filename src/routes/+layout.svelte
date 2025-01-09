@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "../app.css";
 
-	let { data, children } = $props();
+	export let data, children
 </script>
 
 <div class="flex bg-indigo-300 p-4 justify-between items-center">
@@ -19,9 +19,9 @@
   </div>
 </div>
 
-<div class="submenu">
+<div class="flex bg-indigo-100 p-4 space-x-4">
 	{#each data.sections as section}
-		<a href="/settings/{section.slug}">{section.title}</a>
+		<a href="/settings/{section.slug}" class="text-indigo-600 font-medium hover:text-indigo-700">{section.title}</a>
 	{/each}
 </div>
 
