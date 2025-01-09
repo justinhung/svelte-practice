@@ -1,17 +1,19 @@
 import { error } from '@sveltejs/kit';
 
 export const load = async ({ params }) => {
-	// const post = await getPostFromDatabase(params.slug);
-	let post
-	if (params.slug === 'hello-world') {
-		post = {
-			title: 'Hello world!',
-			content: 'Welcome to our blog. Lorem ipsum dolor sit amet...'
-		};
-	}
+	console.log('server params', params)
+
+	const post = await new Promise((resolve) => setTimeout(() => {
+		if (params.slug === 'hello-world') {
+			resolve('Hello world!');
+		}
+	}, 1000));
 
 	if (post) {
-		return post;
+		console.log('post', post)
+		return {
+			title: 'post'
+		}
 	}
 
 	error(404, 'Not found');
