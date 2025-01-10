@@ -1,5 +1,6 @@
 <script lang="ts">
 	import "../app.css";
+	import Nav from "$lib/Nav.svelte";
 
 	export let data, children
 </script>
@@ -18,6 +19,8 @@
     <button class="rounded bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4">Login</button>
   </div>
 </div>
+
+<Nav />
 
 <div class="flex bg-indigo-100 p-4 space-x-4">
 	{#each data.sections as section}
