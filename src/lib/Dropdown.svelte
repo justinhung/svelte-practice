@@ -1,11 +1,12 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition'
   export let href, children, dropDownList;
   
   let isOpen = false
 </script>
 
 <div class="relative inline-block text-left">
-  <a href={href} class="flex items-center gap-1 text-indigo-600" on:mouseenter={() => (isOpen = true)}
+  <a href={href} class="flex items-center text-indigo-600 py-4" on:mouseenter={() => (isOpen = true)}
     on:mouseleave={() => (isOpen = false)}>
     {@render children()}
     <svg class="-mr-1 size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
@@ -23,17 +24,14 @@
       From: "transform opacity-100 scale-100"
       To: "transform opacity-0 scale-95"
   -->
-  <div class={`absolute transition ease-in-out duration-100 left-0 z-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none`} role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1"  style={`display: ${isOpen ? 'block' : 'none'}`} on:mouseenter={() => (isOpen = true)}
-    on:mouseleave={() => (isOpen = false)}>
-    <div class="py-1 transition-all ease-in-out duration-300" role="none">
-      {@render dropDownList()}
-      <!-- Active: "bg-gray-100 text-gray-900 outline-none", Not Active: "text-gray-700"
-      <a href="#" class="block px-4 py-2 text-sm text-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
-      <a href="#" class="block px-4 py-2 text-sm text-gray-100" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
-      <a href="#" class="block px-4 py-2 text-sm text-gray-100" role="menuitem" tabindex="-1" id="menu-item-2">License</a>
-      <form method="POST" action="#" role="none">
-        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
-      </form> -->
+  {#if isOpen}
+    <div transition:fade={{ duration: 100 }} class={`absolute left-0 top-14 z-10 w-56 rounded-md rounded-t-none bg-indigo-100 shadow`} role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" on:mouseenter={() => (isOpen = true)}
+      on:mouseleave={() => (isOpen = false)}>
+      <div class="py-1 transition-all ease-in-out duration-300" role="none">
+        <ul class="list-none">
+          {@render dropDownList()}
+        </ul>
+      </div>
     </div>
-  </div>
+  {/if}
 </div>
