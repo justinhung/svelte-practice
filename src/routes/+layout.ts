@@ -3,14 +3,32 @@ export const load = ({ params}) => {
   return {
     sections: [
       {
-        slug: 'section-1',
-        title: 'Section 1',
-        content: 'Content 1'
+        slug: 'menu-1',
+        title: 'Menu 1',
+        links: [
+          {
+            slug: 'hello-world',
+            title: 'Hello world'
+          },
+          {
+            slug: 'hello-world-2',
+            title: 'Hello world 2'
+          }
+        ]
       },
       {
-        slug: 'section-2',
-        title: 'Section 2',
-        content: 'Content 2'
+        slug: 'menu-2',
+        title: 'Menu 2',
+        links: [
+          {
+            slug: 'hello-world-3',
+            title: 'Hello world 3'
+          },
+          {
+            slug: 'hello-world-4',
+            title: 'Hello world 4'
+          }
+        ]
       }
     ]
   }

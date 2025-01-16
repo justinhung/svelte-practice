@@ -20,12 +20,6 @@
   </div>
 </div>
 
-<Nav />
-
-<div class="flex bg-indigo-100 p-4 space-x-4">
-	{#each data.sections as section}
-		<a href="/settings/{section.slug}" class="text-indigo-600 font-medium hover:text-indigo-700">{section.title}</a>
-	{/each}
-</div>
+<Nav data={data} />
 
 {@render children()}
