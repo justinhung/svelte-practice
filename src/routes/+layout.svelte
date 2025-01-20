@@ -15,7 +15,6 @@
 		</div>
   </div>
   <div class="flex-initial">
-
     <button class="rounded bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4">Login</button>
   </div>
 </div>

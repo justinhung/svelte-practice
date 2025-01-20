@@ -1,13 +1,26 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
+
 	let loading = false
 	let items = [] as any
 	let page = 1
 	let limit = 20
+	let observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				fetchItems(page)
+			}
+		})
+	})
 
 	onMount(async () => {
-		await fetchItems(page)
+		const el = document.getElementById('loadmore');
+		if (el) observer.observe(el);
 	})
+
+	onDestroy(() => {
+    observer.disconnect();
+  });
 
 	async function fetchItems(page: number) {
     loading = true
@@ -31,7 +44,7 @@
 		{/each}
 	</div>
 	<div class="flex justify-center">
-		<button disabled={loading} class="rounded bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 disabled:opacity-50" on:click={() => fetchItems(page)}>
+		<button id="loadmore" disabled={loading} class="rounded bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 disabled:opacity-50" on:click={() => fetchItems(page)}>
 			{loading ? 'Loading...' : 'Load More'}
 		</button>
 	</div>
