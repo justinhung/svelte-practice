@@ -5,7 +5,10 @@
 	let items = [] as any
 	let page = 1
 	let limit = 20
-	let observer = new IntersectionObserver((entries) => {
+	let observer: IntersectionObserver
+
+	onMount(async () => {
+		observer = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
 				fetchItems(page)
@@ -13,13 +16,12 @@
 		})
 	})
 
-	onMount(async () => {
 		const el = document.getElementById('loadmore');
 		if (el) observer.observe(el);
 	})
 
 	onDestroy(() => {
-    observer.disconnect();
+    observer?.disconnect();
   });
 
 	async function fetchItems(page: number) {
