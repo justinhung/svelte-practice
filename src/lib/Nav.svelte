@@ -12,7 +12,7 @@
       {#snippet dropDownList()}
         {#each section.links as link}
           <li class="pl-4">
-            <a href="/{section.slug}/{link.slug}" class="flex items-center gap-2 p-2 hover:bg-base-200 hover:dark:bg-base-800 text-indigo-600 hover:font-medium transition-all ease-in-out duration-300">
+            <a href="/{section.slug}/{link.slug}" class="flex items-center gap-2 p-2 hover:bg-base-200 hover:dark:bg-base-800 text-indigo-600 hover:font-medium">
               {link.title}
             </a>
           </li>
