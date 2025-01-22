@@ -39,7 +39,7 @@
 <div class="p-4 dark:bg-gray-800 transition-all ease-in-out duration-300">
 	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
 		{#each items as i}
-			<div class="border transition-all ease-in-out duration-300 rounded p-4 bg-white dark:bg-indigo-900 hover:bg-indigo-100 hover:bg-indigo-800">
+			<div class="border transition-all ease-in-out duration-300 rounded p-4 bg-white dark:bg-indigo-900 hover:bg-indigo-100 hover:dark:bg-indigo-800">
 				<img src="https://picsum.photos/id/{i}/200" alt="Logo" height="200" width="200" class="rounded mx-auto mb-3" />
 				<div class="text-gray-600 dark:text-gray-400">Card {i}</div>
 			</div>
