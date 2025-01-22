@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="flex-initial">
-      <button class="rounded bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 hover:dark:bg-indigo-600 text-white py-2 px-4 transition-all ease-in-out duration-300 " on:click={toggleDarkMode}>Toggle</button>
+      <button class="rounded bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 hover:dark:bg-indigo-600 text-white py-2 px-4 transition-all ease-in-out duration-300 " on:click={toggleDarkMode}>{isDarkMode ? '☀️' : '🌙'}</button>
     </div>
   </div>
 
